@@ -1,5 +1,25 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  function hasTargetSum(nums, target) {
+    // Use a set to keep track of seen numbers
+    let seen = new Set();
+
+    for (let num of nums) {
+        let complement = target - num;
+        
+        // If complement already in set, we found our pair
+        if (seen.has(complement)) {
+            return true;
+        }
+        
+        // Add current number to set
+        seen.add(num);
+    }
+    
+    // If no pairs found
+    return false;
+}
+
 }
 
 /* 
@@ -8,7 +28,23 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
-*/
+*/Function hasTargetSum(nums: array of integers, target: integer) -> boolean
+Create an empty set called seen
+    
+For each num in nums do
+    Set complement = target - num
+    
+    If seen contains complement then
+        Return true
+    End If
+    
+    Add num to seen
+End For
+
+// If no pairs found
+Return false
+End Function
+
 
 /*
   Add written explanation of your solution here
